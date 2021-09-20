@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Hero } from './../shared/models/hero.model';
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
@@ -8,13 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeroListComponent implements OnInit {
 
+  heroList: Hero[] = [];
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.http.get('api/heros').subscribe((heroList) => {
-      console.log('HeroList', heroList);
+    this.http.get<Hero[]>('api/heros').subscribe((heroList) => {
+      this.heroList = heroList;
     });
   }
 
