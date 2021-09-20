@@ -10,6 +10,7 @@ import { Hero } from './../shared/models/hero.model';
 export class HeroListComponent implements OnInit {
 
   heroList: Hero[] = [];
+  selectedHero: Hero | null = null;
 
   constructor(
     private http: HttpClient
@@ -19,6 +20,10 @@ export class HeroListComponent implements OnInit {
     this.http.get<Hero[]>('api/heros').subscribe((heroList) => {
       this.heroList = heroList;
     });
+  }
+
+  viewHeroDetail(heroId: number): void {
+    this.selectedHero = this.heroList.find((hero) => hero.id === heroId)!;
   }
 
 }

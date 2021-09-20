@@ -1,0 +1,21 @@
+<mat-card *ngIf="hero">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="hero.image" [alt]="hero.name">
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>HP: {{ hero.hp}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Attack: {{ hero.attack }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Defence: {{ hero.defence}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Weapon: {{ hero.weapon}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Skill:  {{ hero.skill}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
