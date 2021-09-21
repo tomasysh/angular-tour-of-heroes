@@ -10,20 +10,15 @@ import { Hero } from './../shared/models/hero.model';
 export class HeroListComponent implements OnInit {
 
   heroList: Hero[] = [];
-  selectedHero: Hero | null = null;
 
   constructor(
     private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.http.get<Hero[]>('api/heros').subscribe((heroList) => {
+    this.http.get<Hero[]>('api/heroes').subscribe((heroList) => {
       this.heroList = heroList;
     });
-  }
-
-  viewHeroDetail(heroId: number): void {
-    this.selectedHero = this.heroList.find((hero) => hero.id === heroId)!;
   }
 
 }

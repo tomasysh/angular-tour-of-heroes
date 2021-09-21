@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Hero } from '../shared/models/hero.model';
 
@@ -9,11 +11,22 @@ import { Hero } from '../shared/models/hero.model';
 })
 export class HeroDetailComponent implements OnInit {
 
-  @Input() hero: Hero | null = null;
+ hero: Hero | null = null;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    const heroId = this.route.snapshot.paramMap.get('id')!;
+    this.getHero(heroId);
+  }
+
+  private getHero(id: string): void {
+    this.http.get<Hero>(`api/heroes/${id}`).subscribe((selectedHero) => {
+      this.hero = selectedHero;
+    })
   }
 
 }

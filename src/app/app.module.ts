@@ -9,8 +9,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+
+
 
 @NgModule({
   declarations: [
@@ -19,13 +22,14 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     HeroDetailComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
