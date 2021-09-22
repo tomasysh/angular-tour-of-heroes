@@ -1,4 +1,4 @@
-<div class="hero-container">
+<div class="hero-container" *ngIf="heroList$ | async as heroList">
   <mat-card class="hero-item" *ngFor="let hero of heroList">
     <mat-card-header>
       <div mat-card-avatar></div>

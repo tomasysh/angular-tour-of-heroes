@@ -1,5 +1,7 @@
+import { HeroService } from './../shared/services/hero.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
 
 import { Hero } from './../shared/models/hero.model';
 @Component({
@@ -9,16 +11,14 @@ import { Hero } from './../shared/models/hero.model';
 })
 export class HeroListComponent implements OnInit {
 
-  heroList: Hero[] = [];
+  heroList$: Observable<Hero[]>;
 
   constructor(
-    private http: HttpClient
-  ) {}
-
-  ngOnInit(): void {
-    this.http.get<Hero[]>('api/heroes').subscribe((heroList) => {
-      this.heroList = heroList;
-    });
+    private heroService: HeroService
+  ) {
+    this.heroList$ = this.heroService.getHeroes();
   }
+
+  ngOnInit(): void {}
 
 }
