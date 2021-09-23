@@ -1,4 +1,4 @@
-<mat-card *ngIf="hero">
+<mat-card *ngIf="hero$| async as hero">
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>{{ hero.name }}</mat-card-title>

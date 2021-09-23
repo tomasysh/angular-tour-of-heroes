@@ -1,7 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+
+import { HeroService } from './../shared/services/hero.service';
 import { Hero } from '../shared/models/hero.model';
 
 @Component({
@@ -11,22 +14,22 @@ import { Hero } from '../shared/models/hero.model';
 })
 export class HeroDetailComponent implements OnInit {
 
- hero: Hero | null = null;
+  hero$: Observable<Hero>;
 
   constructor(
-    private http: HttpClient,
-    private route: ActivatedRoute
-  ) { }
-
-  ngOnInit(): void {
-    const heroId = this.route.snapshot.paramMap.get('id')!;
-    this.getHero(heroId);
+    private route: ActivatedRoute,
+    private heroService: HeroService
+  ) {
+    this.hero$ = this.getHero();
   }
 
-  private getHero(id: string): void {
-    this.http.get<Hero>(`api/heroes/${id}`).subscribe((selectedHero) => {
-      this.hero = selectedHero;
-    })
+  ngOnInit(): void {}
+
+  private getHero(): Observable<Hero> {
+    return this.route.paramMap.pipe(
+      map((params) => params.get('id')),
+      switchMap((heroId) => this.heroService.getHero(heroId!))
+    );
   }
 
 }
