@@ -1,5 +1,5 @@
 export interface Hero {
-  id: number;          // id
+  id?: number;          // id
   name: string;        // 姓名
   image?: string;      // 圖像
   hp: string;          // 生命值

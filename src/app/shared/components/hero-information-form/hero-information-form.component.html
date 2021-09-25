@@ -1,0 +1,17 @@
+<div class="form-field">
+  <label for="name">NAME</label>
+  <input
+    #tName="ngModel"
+    name="name"
+    ngModel
+    required
+    type="text"
+    id="name" />
+</div>
+
+<button
+  type="button"
+  [disabled]="tName.invalid">
+  儲存
+</button>
+

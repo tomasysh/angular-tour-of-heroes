@@ -12,14 +12,20 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddHeroPageComponent } from './pages/add-hero-page/add-hero-page.component';
+import { EditHeroPageComponent } from './pages/edit-hero-page/edit-hero-page.component';
+import { HeroInformationFormComponent } from './shared/components/hero-information-form/hero-information-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroListComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroInformationFormComponent,
+    AddHeroPageComponent,
+    EditHeroPageComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -30,6 +36,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     MatButtonModule,
     MatDividerModule,
     MatListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
