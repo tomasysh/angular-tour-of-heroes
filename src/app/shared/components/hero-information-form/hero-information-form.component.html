@@ -1,17 +1,119 @@
-<div class="form-field">
-  <label for="name">NAME</label>
-  <input
-    #tName="ngModel"
-    name="name"
-    ngModel
-    required
-    type="text"
-    id="name" />
-</div>
+<form
+  #tForm="ngForm"
+  (ngSubmit)="doSubmit(tForm)">
 
-<button
-  type="button"
-  [disabled]="tName.invalid">
-  儲存
-</button>
+  <div class="form-field">
+    <label for="name">NAME</label>
+    <input
+      #tName="ngModel"
+      name="name"
+      ngModel
+      required
+      type="text"
+      id="name" />
+    <ng-container *ngIf="tName.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tName.errors?.required">此欄位為必填</div>
+    </ng-container>
 
+  </div>
+
+  <div class="form-field">
+    <label for="hp">HP</label>
+    <input
+      #tHp="ngModel"
+      name="hp"
+      ngModel
+      required
+      type="number"
+      id="hp" />
+    <ng-container *ngIf="tHp.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tHp.errors?.required">此欄位為必填</div>
+    </ng-container>
+  </div>
+
+  <div class="form-field">
+    <label for="attack">ATTACK</label>
+    <input
+      #tAttack="ngModel"
+      name="attack"
+      ngModel
+      required
+      type="number"
+      id="attack" />
+    <ng-container *ngIf="tAttack.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tAttack.errors?.required">此欄位為必填</div>
+    </ng-container>
+  </div>
+
+  <div class="form-field">
+    <label for="defence">DEFENCE</label>
+    <input
+      #tDefence="ngModel"
+      name="defence"
+      ngModel
+      required
+      type="number"
+      id="defence" />
+    <ng-container *ngIf="tDefence.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tDefence.errors?.required">此欄位為必填</div>
+    </ng-container>
+  </div>
+
+  <div class="form-field">
+    <label for="weapon">WEAPON</label>
+    <input
+      #tWeapon="ngModel"
+      name="weapon"
+      ngModel
+      required
+      type="string"
+      id="weapon" />
+    <ng-container *ngIf="tWeapon.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tWeapon.errors?.required">此欄位為必填</div>
+    </ng-container>
+  </div>
+
+  <div class="form-field">
+    <label for="skill">SKILL</label>
+    <input
+      #tSkill="ngModel"
+      name="skill"
+      ngModel
+      required
+      type="string"
+      id="skill" />
+    <ng-container *ngIf="tSkill.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tSkill.errors?.required">此欄位為必填</div>
+    </ng-container>
+  </div>
+
+  <div class="form-field">
+    <label for="description">
+      DESCRIPTION
+    </label>
+    <textarea
+      ngModel
+      required
+      #tDescription="ngModel"
+      name="description"
+      id="description"
+      cols="30"
+      rows="10">
+    </textarea>
+    <ng-container *ngIf="tDescription.invalid && tForm.submitted">
+      <div class="error-message" *ngIf="tDescription.errors?.required">此欄位為必填</div>
+    </ng-container>
+  </div>
+
+  <button
+    type="submit">
+    新增英雄
+  </button>
+
+  <button
+    type="button"
+    (click)="tForm.reset()">
+    重設表單
+  </button>
+
+</form>

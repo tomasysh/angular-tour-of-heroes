@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +13,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddHeroPageComponent } from './pages/add-hero-page/add-hero-page.component';
 import { EditHeroPageComponent } from './pages/edit-hero-page/edit-hero-page.component';
 import { HeroInformationFormComponent } from './shared/components/hero-information-form/hero-information-form.component';
@@ -37,7 +37,6 @@ import { HeroInformationFormComponent } from './shared/components/hero-informati
     MatDividerModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
