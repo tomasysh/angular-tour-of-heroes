@@ -11,8 +11,18 @@
       required
       type="text"
       id="name" />
-    <ng-container *ngIf="tName.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tName.errors?.required">此欄位為必填</div>
+    <ng-container
+      *ngIf="tName.invalid && tForm.submitted"
+    >
+      <div
+        *ngIf="tName.errors?.required"
+        class="error-message"
+        >
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Name' }">
+        </ng-container>
+      </div>
     </ng-container>
 
   </div>
@@ -27,7 +37,15 @@
       type="number"
       id="hp" />
     <ng-container *ngIf="tHp.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tHp.errors?.required">此欄位為必填</div>
+      <div
+        *ngIf="tHp.errors?.required"
+        class="error-message"
+        >
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Hp' }">
+        </ng-container>
+      </div>
     </ng-container>
   </div>
 
@@ -41,7 +59,12 @@
       type="number"
       id="attack" />
     <ng-container *ngIf="tAttack.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tAttack.errors?.required">此欄位為必填</div>
+      <div class="error-message" *ngIf="tAttack.errors?.required">
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Attack' }">
+        </ng-container>
+      </div>
     </ng-container>
   </div>
 
@@ -55,7 +78,12 @@
       type="number"
       id="defence" />
     <ng-container *ngIf="tDefence.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tDefence.errors?.required">此欄位為必填</div>
+      <div class="error-message" *ngIf="tDefence.errors?.required">
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Defence' }">
+        </ng-container>
+      </div>
     </ng-container>
   </div>
 
@@ -69,7 +97,12 @@
       type="string"
       id="weapon" />
     <ng-container *ngIf="tWeapon.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tWeapon.errors?.required">此欄位為必填</div>
+      <div class="error-message" *ngIf="tWeapon.errors?.required">
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Weapon' }">
+        </ng-container>
+      </div>
     </ng-container>
   </div>
 
@@ -83,7 +116,12 @@
       type="string"
       id="skill" />
     <ng-container *ngIf="tSkill.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tSkill.errors?.required">此欄位為必填</div>
+      <div class="error-message" *ngIf="tSkill.errors?.required">
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Skill' }">
+        </ng-container>
+      </div>
     </ng-container>
   </div>
 
@@ -101,7 +139,12 @@
       rows="10">
     </textarea>
     <ng-container *ngIf="tDescription.invalid && tForm.submitted">
-      <div class="error-message" *ngIf="tDescription.errors?.required">此欄位為必填</div>
+      <div class="error-message" *ngIf="tDescription.errors?.required">
+        <ng-container
+          *ngTemplateOutlet="tRequiredError;
+          context: { fieldName: 'Description' }">
+        </ng-container>
+      </div>
     </ng-container>
   </div>
 
@@ -117,3 +160,11 @@
   </button>
 
 </form>
+
+
+<!-- Template methods -->
+<ng-template #tRequiredError let-fieldName="fieldName">
+  <div>
+    {{ fieldName }} is Required!
+  </div>
+</ng-template>

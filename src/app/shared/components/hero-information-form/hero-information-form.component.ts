@@ -10,6 +10,8 @@ import { Hero } from './../../models/hero.model';
 
 export class HeroInformationFormComponent implements OnInit {
 
+  name: any;
+
   constructor() {}
 
   ngOnInit(): void {}
