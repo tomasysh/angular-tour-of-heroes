@@ -1,9 +1,9 @@
-import { HeroService } from './../shared/services/hero.service';
+import { HeroService } from '../../../shared/services/hero.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { Hero } from './../shared/models/hero.model';
+import { Hero } from '../../../shared/models/hero.model';
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',

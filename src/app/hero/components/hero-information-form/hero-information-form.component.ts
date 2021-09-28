@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Hero } from './../../models/hero.model';
+import { Hero } from '../../../shared/models/hero.model';
 @Component({
   selector: 'app-hero-information-form',
   templateUrl: './hero-information-form.component.html',
